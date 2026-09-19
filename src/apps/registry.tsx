@@ -8,6 +8,8 @@ import { ContactApp } from './ContactApp'
 import { ResumeApp } from './ResumeApp'
 import { MinesweeperApp } from './MinesweeperApp'
 import { RecycleApp } from './RecycleApp'
+import { CalculatorApp } from './CalculatorApp'
+import { FlappyApp } from './FlappyApp'
 
 export interface AppDef {
   id: string
@@ -18,6 +20,7 @@ export interface AppDef {
   size: { w: number; h: number }
   desktop: boolean
   startMenu: boolean
+  game?: boolean
   /** Rendered with no padding; app manages its own chrome (menu bars etc). */
   bare?: boolean
 }
@@ -94,7 +97,29 @@ export const apps = [
     icon: 'mines',
     component: MinesweeperApp,
     size: { w: 280, h: 360 },
-    desktop: false,
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'flappy',
+    title: 'Flappy Bird',
+    icon: 'bird',
+    component: FlappyApp,
+    size: { w: 318, h: 508 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'calculator',
+    title: 'Calculator',
+    icon: 'calc',
+    component: CalculatorApp,
+    size: { w: 300, h: 262 },
+    desktop: true,
     startMenu: true,
     bare: true,
   },

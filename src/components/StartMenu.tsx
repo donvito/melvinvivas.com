@@ -1,4 +1,4 @@
-import { apps, type AppId } from '../apps/registry'
+import { apps, type AppDef, type AppId } from '../apps/registry'
 import { UserAvatar } from '../icons'
 import { icons } from '../iconMap'
 import { profile } from '../data/profile'
@@ -18,7 +18,9 @@ const external = [
 ]
 
 export function StartMenu({ onOpen, onClose, onLogOff }: Props) {
-  const left = apps.filter((a) => a.startMenu)
+  const isGame = (a: AppDef) => a.game === true
+  const left = apps.filter((a) => a.startMenu && !isGame(a))
+  const games = apps.filter((a) => a.startMenu && isGame(a))
   return (
     <div className="xp-startmenu" role="menu" aria-labelledby="start-button">
       <div className="xp-sm-header">
@@ -52,6 +54,17 @@ export function StartMenu({ onOpen, onClose, onLogOff }: Props) {
               {l.label}
             </a>
           ))}
+          <div className="xp-sm-sep" />
+          <div className="xp-sm-right-title">Games</div>
+          {games.map((a) => {
+            const Icon = icons[a.icon]
+            return (
+              <button key={a.id} className="xp-sm-link" role="menuitem" onClick={() => onOpen(a.id)}>
+                <Icon size={16} />
+                {a.title}
+              </button>
+            )
+          })}
           <div className="xp-sm-sep" />
           <a className="xp-sm-link" href={profile.links.coffee} target="_blank" rel="noopener noreferrer" role="menuitem" onClick={onClose}>
             Buy me a coffee
@@ -90,7 +103,10 @@ function describe(id: AppId) {
     case 'contact':
       return 'Get in touch'
     case 'minesweeper':
+    case 'flappy':
       return 'Take a break'
+    case 'calculator':
+      return 'Crunch some numbers'
     case 'recycle':
       return ''
   }

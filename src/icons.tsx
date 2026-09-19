@@ -133,6 +133,40 @@ export function MinesIcon({ size, ...props }: P) {
   )
 }
 
+export function CalcIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="6" y="2" width="20" height="28" rx="2" fill="#ece9d8" stroke="#6f6f6f" />
+      <rect x="8.5" y="4.5" width="15" height="6" fill="#d9f3d1" stroke="#7d9a72" />
+      <g fill="#4b70b8">
+        <rect x="8.5" y="13" width="4" height="3.5" />
+        <rect x="14" y="13" width="4" height="3.5" />
+        <rect x="19.5" y="13" width="4" height="3.5" fill="#c94f2a" />
+        <rect x="8.5" y="18" width="4" height="3.5" />
+        <rect x="14" y="18" width="4" height="3.5" />
+        <rect x="19.5" y="18" width="4" height="3.5" fill="#c94f2a" />
+        <rect x="8.5" y="23" width="9.5" height="3.5" />
+        <rect x="19.5" y="23" width="4" height="3.5" fill="#2e8b3c" />
+      </g>
+    </svg>
+  )
+}
+
+export function BirdIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#70c5ce" />
+      <rect x="2" y="24" width="28" height="6" fill="#ded895" />
+      <rect x="22" y="4" width="6" height="9" fill="#73bf2e" stroke="#4e7d1e" />
+      <ellipse cx="14" cy="17" rx="7" ry="5.5" fill="#f8d64e" stroke="#7a5a12" />
+      <ellipse cx="10" cy="18" rx="3" ry="2" fill="#fff" stroke="#7a5a12" />
+      <circle cx="17.5" cy="15.5" r="2" fill="#fff" stroke="#7a5a12" />
+      <circle cx="18.2" cy="15.5" r="0.9" fill="#222" />
+      <path d="M19 19 h5 l-2.5 2 z" fill="#f0742c" stroke="#7a5a12" />
+    </svg>
+  )
+}
+
 export function StartFlag({ size = 20 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 20 20">
