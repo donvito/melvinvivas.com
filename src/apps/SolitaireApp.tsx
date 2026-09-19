@@ -60,7 +60,7 @@ function canTab(card: Card, pile: Card[]) {
 function canFound(card: Card, pile: Card[]) {
   const top = pile[pile.length - 1]
   if (!top) return card.rank === 1
-  return top.suit === card.suit && top.rank === card.rank + 1
+  return top.suit === card.suit && card.rank === top.rank + 1
 }
 
 function pick(g: Game, from: Loc): Card[] {
