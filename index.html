@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melvin Vivas</title>
+  <meta name="description" content="Melvin Vivas — AI Engineer & Fractional CAIO in Singapore. A personal website disguised as a Windows XP desktop." />
+  <link rel="stylesheet" href="css/xp.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M3 5l8-1v8H3z' fill='%23f96702'/><path d='M12 4l9-1v9h-9z' fill='%238ec63f'/><path d='M3 13h8v8l-8-1z' fill='%2305a6f0'/><path d='M12 13h9v8l-9-1z' fill='%23fdc00e'/></svg>" />
+</head>
+<body>
+  <!-- ============ BOOT SCREEN ============ -->
+  <div id="boot" class="boot">
+    <div class="boot-logo">
+      <span class="boot-flag"></span>
+      <div class="boot-wordmark">
+        <span class="boot-ms">Microsoft</span>
+        <span class="boot-xp">Windows<sup>xp</sup></span>
+        <span class="boot-edition">Professional</span>
+      </div>
+    </div>
+    <div class="boot-progress"><div class="boot-bar"><span></span><span></span><span></span></div></div>
+    <div class="boot-footer"><span>Copyright &copy; Microsoft Corporation</span><span class="boot-msfoot">Microsoft</span></div>
+  </div>
+
+  <!-- ============ WELCOME / LOGIN ============ -->
+  <div id="welcome" class="welcome hidden">
+    <div class="welcome-top">
+      <span class="welcome-flag"></span>
+      <span class="welcome-title">Microsoft <b>Windows<sup>xp</sup></b></span>
+    </div>
+    <div class="welcome-middle">
+      <div class="welcome-hint">To begin, click your user name</div>
+      <div class="welcome-tile" id="user-tile">
+        <img class="welcome-avatar" src="https://github.com/donvito.png" alt="Melvin Vivas" />
+        <div class="welcome-name">Melvin Vivas</div>
+      </div>
+    </div>
+    <div class="welcome-bottom">
+      <div class="welcome-tip">Turn off your computer? Try <b>Start &rarr; Turn Off Computer</b>. Go on, I dare you.</div>
+    </div>
+  </div>
+
+  <!-- ============ DESKTOP ============ -->
+  <div id="desktop" class="desktop hidden">
+    <div id="desktop-icons"></div>
+    <div id="windows"></div>
+
+    <!-- Start menu -->
+    <div id="start-menu" class="start-menu hidden">
+      <div class="sm-header">
+        <img class="sm-avatar" src="https://github.com/donvito.png" alt="" />
+        <span class="sm-username">Melvin Vivas</span>
+      </div>
+      <div class="sm-body">
+        <div class="sm-col sm-left" id="sm-pinned"></div>
+        <div class="sm-col sm-right" id="sm-places"></div>
+      </div>
+      <div class="sm-footer">
+        <button class="sm-btn" id="btn-logoff"><span class="sm-ico sm-ico-logoff"></span>Log Off</button>
+        <button class="sm-btn" id="btn-shutdown"><span class="sm-ico sm-ico-off"></span>Turn Off Computer</button>
+      </div>
+    </div>
+
+    <!-- Turn off computer dialog -->
+    <div id="shutdown-dialog" class="shutdown-dim hidden">
+      <div class="shutdown-box">
+        <div class="shutdown-title">Turn off computer</div>
+        <div class="shutdown-options">
+          <button class="shutdown-opt" id="opt-standby">
+            <span class="sh-ico sh-standby"></span><span>Stand By</span>
+          </button>
+          <button class="shutdown-opt" id="opt-off">
+            <span class="sh-ico sh-off"></span><span>Turn Off</span>
+          </button>
+          <button class="shutdown-opt" id="opt-restart">
+            <span class="sh-ico sh-restart"></span><span>Restart</span>
+          </button>
+        </div>
+        <button class="shutdown-cancel" id="opt-cancel">Cancel</button>
+      </div>
+    </div>
+
+    <!-- Taskbar -->
+    <div id="taskbar">
+      <button id="start-button"><span class="start-flag"></span><span class="start-label">start</span></button>
+      <div id="task-buttons"></div>
+      <div id="tray">
+        <span class="tray-icon" id="tray-icon" title="Windows XP simulation"></span>
+        <span id="clock">--:--</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SHUT DOWN / OFF ============ -->
+  <div id="shutting-down" class="shutting-down hidden">
+    <div class="shutting-text">Windows is shutting down...</div>
+  </div>
+  <div id="off" class="off hidden">
+    <div class="off-text">It's now safe to turn off<br />your computer.</div>
+    <button id="power-button" title="Power">
+      <svg viewBox="0 0 24 24" width="40" height="40"><circle cx="12" cy="13" r="8" fill="none" stroke="#3f9" stroke-width="2"/><line x1="12" y1="3" x2="12" y2="12" stroke="#3f9" stroke-width="2"/></svg>
+    </button>
+    <div class="off-hint">press power to boot</div>
+  </div>
+
+  <script src="js/icons.js"></script>
+  <script src="js/apps.js"></script>
+  <script src="js/minesweeper.js"></script>
+  <script src="js/desktop.js"></script>
+</body>
+</html>
