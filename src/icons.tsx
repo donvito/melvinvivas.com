@@ -152,6 +152,20 @@ export function CalcIcon({ size, ...props }: P) {
   )
 }
 
+export function CardsIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#2e8b3c" />
+      <rect x="6" y="9" width="13" height="18" rx="1.5" fill="#3a63c9" stroke="#fff" transform="rotate(-12 12 18)" />
+      <rect x="13" y="6" width="13" height="18" rx="1.5" fill="#fff" stroke="#888" />
+      <path d="M19.5 11 c-2 -3 -5 0 -3 2.2 l3 3 l3 -3 c2 -2.2 -1 -5.2 -3 -2.2z" fill="#d22" />
+      <text x="14.5" y="22.5" fontSize="6" fontFamily="Arial" fontWeight="bold" fill="#d22">
+        A
+      </text>
+    </svg>
+  )
+}
+
 export function BirdIcon({ size, ...props }: P) {
   return (
     <svg {...base(size, props)}>

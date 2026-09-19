@@ -10,6 +10,7 @@ import { MinesweeperApp } from './MinesweeperApp'
 import { RecycleApp } from './RecycleApp'
 import { CalculatorApp } from './CalculatorApp'
 import { FlappyApp } from './FlappyApp'
+import { SolitaireApp } from './SolitaireApp'
 
 export interface AppDef {
   id: string
@@ -108,6 +109,17 @@ export const apps = [
     icon: 'bird',
     component: FlappyApp,
     size: { w: 318, h: 508 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'solitaire',
+    title: 'Solitaire',
+    icon: 'cards',
+    component: SolitaireApp,
+    size: { w: 560, h: 520 },
     desktop: true,
     startMenu: true,
     game: true,

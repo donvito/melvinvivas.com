@@ -104,6 +104,7 @@ function describe(id: AppId) {
       return 'Get in touch'
     case 'minesweeper':
     case 'flappy':
+    case 'solitaire':
       return 'Take a break'
     case 'calculator':
       return 'Crunch some numbers'
