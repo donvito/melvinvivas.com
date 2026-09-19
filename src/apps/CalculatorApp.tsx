@@ -7,10 +7,11 @@ interface Calc {
   acc: number | null
   op: Op | null
   fresh: boolean
+  operand: boolean
   memory: number
 }
 
-const init: Calc = { display: '0', acc: null, op: null, fresh: true, memory: 0 }
+const init: Calc = { display: '0', acc: null, op: null, fresh: true, operand: false, memory: 0 }
 
 function fmt(n: number) {
   if (!Number.isFinite(n)) return 'Cannot divide by zero'
@@ -34,33 +35,33 @@ function apply(a: number, op: Op, b: number) {
 function step(s: Calc, key: string): Calc {
   const cur = parseFloat(s.display) || 0
   if (/^[0-9]$/.test(key)) {
-    if (s.fresh) return { ...s, display: key, fresh: false }
+    if (s.fresh) return { ...s, display: key, fresh: false, operand: true }
     if (s.display.replace(/[-.]/g, '').length >= 16) return s
-    return { ...s, display: s.display === '0' ? key : s.display + key }
+    return { ...s, display: s.display === '0' ? key : s.display + key, operand: true }
   }
   switch (key) {
     case '.':
-      if (s.fresh) return { ...s, display: '0.', fresh: false }
+      if (s.fresh) return { ...s, display: '0.', fresh: false, operand: true }
       return s.display.includes('.') ? s : { ...s, display: s.display + '.' }
     case 'C':
       return { ...init, memory: s.memory }
     case 'CE':
-      return { ...s, display: '0', fresh: true }
+      return { ...s, display: '0', fresh: true, operand: true }
     case '⌫':
       if (s.fresh) return s
       return { ...s, display: s.display.length > 1 ? s.display.slice(0, -1) : '0' }
     case '±':
-      return { ...s, display: cur === 0 ? '0' : fmt(-cur) }
+      return { ...s, display: cur === 0 ? '0' : fmt(-cur), operand: true }
     case '√':
-      return { ...s, display: fmt(Math.sqrt(cur)), fresh: true }
+      return { ...s, display: fmt(Math.sqrt(cur)), fresh: true, operand: true }
     case '%':
-      return { ...s, display: fmt((s.acc ?? 0) * cur / 100), fresh: true }
+      return { ...s, display: fmt((s.acc ?? 0) * cur / 100), fresh: true, operand: true }
     case '1/x':
-      return { ...s, display: fmt(1 / cur), fresh: true }
+      return { ...s, display: fmt(1 / cur), fresh: true, operand: true }
     case 'MC':
       return { ...s, memory: 0 }
     case 'MR':
-      return { ...s, display: fmt(s.memory), fresh: true }
+      return { ...s, display: fmt(s.memory), fresh: true, operand: true }
     case 'MS':
       return { ...s, memory: cur, fresh: true }
     case 'M+':
@@ -70,16 +71,16 @@ function step(s: Calc, key: string): Calc {
     case '*':
     case '/': {
       const op = key as Op
-      if (s.op && s.acc !== null && !s.fresh) {
+      if (s.op && s.acc !== null && s.operand) {
         const r = apply(s.acc, s.op, cur)
-        return { ...s, display: fmt(r), acc: r, op, fresh: true }
+        return { ...s, display: fmt(r), acc: r, op, fresh: true, operand: false }
       }
-      return { ...s, acc: s.fresh && s.acc !== null ? s.acc : cur, op, fresh: true }
+      return { ...s, acc: s.op && s.acc !== null ? s.acc : cur, op, fresh: true, operand: false }
     }
     case '=': {
       if (s.op === null || s.acc === null) return { ...s, fresh: true }
       const r = apply(s.acc, s.op, cur)
-      return { ...s, display: fmt(r), acc: null, op: null, fresh: true }
+      return { ...s, display: fmt(r), acc: null, op: null, fresh: true, operand: false }
     }
   }
   return s
