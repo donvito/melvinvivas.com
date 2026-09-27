@@ -380,7 +380,7 @@ export function PhoenixApp() {
         ctx.strokeStyle = b.c
         ctx.lineWidth = 2
         ctx.beginPath()
-        ctx.arc(b.x, b.y, (1 - b.t / 0.5) * 22 + 4, 0, Math.PI * 2)
+        ctx.arc(b.x, b.y, Math.max(1, (1 - b.t / 1.2) * 26 + 4), 0, Math.PI * 2)
         ctx.stroke()
       }
 
