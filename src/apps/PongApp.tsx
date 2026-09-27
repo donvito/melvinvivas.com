@@ -75,10 +75,10 @@ export function PongApp() {
           s.ps++
           s = serve(s, 1)
         }
-        if (s.phase === 'serve') setScore([s.ps, s.cs])
         if (s.ps >= WIN || s.cs >= WIN) s = { ...s, phase: 'over', msg: s.ps > s.cs ? 'YOU WIN' : 'CPU WINS' }
       }
       st.current = s
+      setScore((p) => (p[0] === s.ps && p[1] === s.cs ? p : [s.ps, s.cs]))
 
       ctx.fillStyle = '#000'
       ctx.fillRect(0, 0, W, H)

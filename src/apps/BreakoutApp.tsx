@@ -91,15 +91,14 @@ export function BreakoutApp() {
             s = reset({ ...s, bricks: wall(), level: s.level + 1 })
             if (s.level > 3) s.phase = 'won'
           }
-          setHud({ score: s.score, lives: s.lives, level: s.level })
         }
         if (s.by > H + BALL) {
           s.lives--
           s = s.lives <= 0 ? { ...s, phase: 'over' } : reset(s)
-          setHud({ score: s.score, lives: s.lives, level: s.level })
         }
       }
       st.current = s
+      setHud((p) => (p.score === s.score && p.lives === s.lives && p.level === s.level ? p : { score: s.score, lives: s.lives, level: s.level }))
 
       ctx.fillStyle = '#000'
       ctx.fillRect(0, 0, W, H)

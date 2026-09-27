@@ -132,7 +132,6 @@ export function AsteroidsApp() {
         return false
       })
       s.rocks.push(...born)
-      if (born.length || s.rocks.length === 0) setHud({ score: s.score, lives: s.lives })
       if (!s.rocks.length) {
         s.wave++
         s.rocks = spawnWave(3 + s.wave)
@@ -142,9 +141,9 @@ export function AsteroidsApp() {
         s.lives--
         s.t = 0
         s.phase = s.lives <= 0 ? 'over' : 'dead'
-        setHud({ score: s.score, lives: s.lives })
       }
       st.current = s
+      setHud((p) => (p.score === s.score && p.lives === s.lives ? p : { score: s.score, lives: s.lives }))
 
       ctx.fillStyle = '#000'
       ctx.fillRect(0, 0, W, H)
