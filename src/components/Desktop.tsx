@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react'
 import { apps, isAppId, type AppId } from '../apps/registry'
 import { icons } from '../iconMap'
+import { ShortcutIcon } from '../icons'
+import { profile } from '../data/profile'
 import { initialWM, WMContext, wmReducer, type WMContextValue } from '../wm'
 import { Window } from './Window'
 import { Taskbar } from './Taskbar'
@@ -21,7 +23,7 @@ export function Desktop({ onLogOff }: Props) {
     return id ? wmReducer(initialWM, { type: 'open', id, size: apps.find((a) => a.id === id)!.size }) : initialWM
   })
   const [startOpen, setStartOpen] = useState(false)
-  const [selected, setSelected] = useState<AppId | null>(null)
+  const [selected, setSelected] = useState<AppId | 'donvitocodes' | null>(null)
 
   const open = useCallback((id: AppId) => {
     const app = apps.find((a) => a.id === id)!
@@ -104,6 +106,26 @@ export function Desktop({ onLogOff }: Props) {
               </button>
             )
           })}
+          <a
+            className={'xp-icon' + (selected === 'donvitocodes' ? ' selected' : '')}
+            href={profile.links.donvitocodes}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              if (e.detail === 1) {
+                e.preventDefault()
+                setSelected('donvitocodes')
+              }
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault()
+              window.open(profile.links.donvitocodes, '_blank', 'noopener')
+            }}
+            aria-label="Open donvitocodes.com"
+          >
+            <ShortcutIcon size={40} />
+            <span>DonvitoCodes</span>
+          </a>
         </div>
 
         {state.windows.map((w) => (

@@ -11,6 +11,12 @@ import { RecycleApp } from './RecycleApp'
 import { CalculatorApp } from './CalculatorApp'
 import { FlappyApp } from './FlappyApp'
 import { SolitaireApp } from './SolitaireApp'
+import { PlatformerApp } from './PlatformerApp'
+import { PongApp } from './PongApp'
+import { BreakoutApp } from './BreakoutApp'
+import { AsteroidsApp } from './AsteroidsApp'
+import { CityApp } from './CityApp'
+import { DetectiveApp } from './DetectiveApp'
 
 export interface AppDef {
   id: string
@@ -120,6 +126,75 @@ export const apps = [
     icon: 'cards',
     component: SolitaireApp,
     size: { w: 560, h: 520 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'platformer',
+    title: 'Super Melvin',
+    windowTitle: 'Super Melvin Bros',
+    icon: 'platformer',
+    component: PlatformerApp,
+    size: { w: 624, h: 448 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'pong',
+    title: 'Pong',
+    icon: 'pong',
+    component: PongApp,
+    size: { w: 508, h: 410 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'breakout',
+    title: 'Breakout',
+    icon: 'breakout',
+    component: BreakoutApp,
+    size: { w: 508, h: 450 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'asteroids',
+    title: 'Asteroids',
+    icon: 'asteroids',
+    component: AsteroidsApp,
+    size: { w: 508, h: 490 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'city',
+    title: 'MelvinCity',
+    windowTitle: 'MelvinCity - Mayor Melvin',
+    icon: 'city',
+    component: CityApp,
+    size: { w: 680, h: 440 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'detective',
+    title: 'World Detective',
+    windowTitle: 'Where in the World is Carmen Sandwich?',
+    icon: 'detective',
+    component: DetectiveApp,
+    size: { w: 680, h: 480 },
     desktop: true,
     startMenu: true,
     game: true,

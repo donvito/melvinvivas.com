@@ -166,6 +166,108 @@ export function CardsIcon({ size, ...props }: P) {
   )
 }
 
+export function ShortcutIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <circle cx="16" cy="16" r="13" fill="#1a73e8" stroke="#0b3d91" />
+      <ellipse cx="16" cy="16" rx="6" ry="13" fill="none" stroke="#9cc4ff" />
+      <line x1="3" y1="16" x2="29" y2="16" stroke="#9cc4ff" />
+      <line x1="5" y1="10" x2="27" y2="10" stroke="#9cc4ff" />
+      <line x1="5" y1="22" x2="27" y2="22" stroke="#9cc4ff" />
+      <text x="16" y="20" fontSize="11" fontFamily="Arial" fontWeight="bold" fill="#fff" textAnchor="middle">
+        {'</>'}
+      </text>
+      <rect x="2" y="22" width="8" height="8" fill="#fff" stroke="#000" />
+      <path d="M4 28 l4 -4 M5 24 h3 v3" stroke="#000" fill="none" />
+    </svg>
+  )
+}
+
+export function PlatformerIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#5c94fc" />
+      <rect x="2" y="24" width="28" height="6" fill="#c84c0c" />
+      <rect x="18" y="8" width="7" height="7" fill="#f8a020" stroke="#000" />
+      <rect x="9" y="12" width="8" height="3" fill="#e03030" />
+      <rect x="10" y="15" width="6" height="4" fill="#f8c890" />
+      <rect x="9" y="19" width="8" height="5" fill="#2040c0" />
+      <text x="21.5" y="14" fontSize="6" fontFamily="Arial" fontWeight="bold" fill="#fff" textAnchor="middle">
+        ?
+      </text>
+    </svg>
+  )
+}
+
+export function PongIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#000" />
+      <line x1="16" y1="4" x2="16" y2="28" stroke="#666" strokeDasharray="2 2" />
+      <rect x="5" y="9" width="2" height="8" fill="#fff" />
+      <rect x="25" y="15" width="2" height="8" fill="#fff" />
+      <rect x="18" y="12" width="3" height="3" fill="#fff" />
+    </svg>
+  )
+}
+
+export function BreakoutIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#000" />
+      {['#e33', '#f93', '#3c3', '#39f'].map((c, i) => (
+        <g key={c}>
+          <rect x="4" y={5 + i * 3} width="7" height="2.5" fill={c} />
+          <rect x="12.5" y={5 + i * 3} width="7" height="2.5" fill={c} />
+          <rect x="21" y={5 + i * 3} width="7" height="2.5" fill={c} />
+        </g>
+      ))}
+      <rect x="12" y="26" width="8" height="2" fill="#fff" />
+      <circle cx="18" cy="22" r="1.5" fill="#fff" />
+    </svg>
+  )
+}
+
+export function AsteroidsIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#000" />
+      <path d="M16 8 l5 12 l-5 -3 l-5 3 z" fill="none" stroke="#fff" />
+      <path d="M5 8 l4 -2 l3 3 l-1 4 l-4 1 l-2 -3 z" fill="none" stroke="#aaa" />
+      <path d="M22 20 l4 -1 l2 3 l-1 4 l-4 0 l-2 -3 z" fill="none" stroke="#aaa" />
+      <circle cx="9" cy="24" r="0.7" fill="#fff" />
+      <circle cx="26" cy="7" r="0.7" fill="#fff" />
+    </svg>
+  )
+}
+
+export function CityIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#3f9b3f" />
+      <rect x="2" y="15" width="28" height="4" fill="#555" />
+      <rect x="4" y="6" width="6" height="9" fill="#5a8ad8" stroke="#264d8f" />
+      <rect x="12" y="9" width="7" height="6" fill="#5ac85a" stroke="#2f7a2f" />
+      <rect x="21" y="4" width="7" height="11" fill="#d8b25a" stroke="#8f6b1e" />
+      <rect x="5" y="21" width="9" height="7" fill="#5ac85a" stroke="#2f7a2f" />
+      <rect x="17" y="21" width="10" height="7" fill="#777" stroke="#333" />
+      <rect x="19" y="18" width="2" height="4" fill="#333" />
+    </svg>
+  )
+}
+
+export function DetectiveIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <circle cx="16" cy="16" r="13" fill="#2b6cb0" stroke="#0b3d91" />
+      <path d="M7 12 q4 -4 8 -1 q2 3 -1 5 q-4 2 -7 -1z M18 18 q4 -3 7 0 q1 3 -2 4 q-4 0 -5 -2z" fill="#3f9b3f" />
+      <circle cx="21" cy="11" r="6" fill="none" stroke="#fff" strokeWidth="2" />
+      <line x1="25" y1="15.5" x2="30" y2="20.5" stroke="#fff" strokeWidth="3" />
+      <rect x="12" y="4" width="10" height="3" fill="#a33" />
+    </svg>
+  )
+}
+
 export function BirdIcon({ size, ...props }: P) {
   return (
     <svg {...base(size, props)}>

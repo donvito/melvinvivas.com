@@ -1,4 +1,23 @@
-import { ComputerIcon, FolderIcon, IEIcon, NotepadIcon, MediaIcon, MailIcon, ResumeIcon, RecycleIcon, MinesIcon, CalcIcon, BirdIcon, CardsIcon } from './icons'
+import {
+  ComputerIcon,
+  FolderIcon,
+  IEIcon,
+  NotepadIcon,
+  MediaIcon,
+  MailIcon,
+  ResumeIcon,
+  RecycleIcon,
+  MinesIcon,
+  CalcIcon,
+  BirdIcon,
+  CardsIcon,
+  PlatformerIcon,
+  PongIcon,
+  BreakoutIcon,
+  AsteroidsIcon,
+  CityIcon,
+  DetectiveIcon,
+} from './icons'
 
 export const icons = {
   computer: ComputerIcon,
@@ -13,6 +32,12 @@ export const icons = {
   calc: CalcIcon,
   bird: BirdIcon,
   cards: CardsIcon,
+  platformer: PlatformerIcon,
+  pong: PongIcon,
+  breakout: BreakoutIcon,
+  asteroids: AsteroidsIcon,
+  city: CityIcon,
+  detective: DetectiveIcon,
 } as const
 
 export type IconName = keyof typeof icons

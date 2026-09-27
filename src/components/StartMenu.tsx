@@ -105,6 +105,12 @@ function describe(id: AppId) {
     case 'minesweeper':
     case 'flappy':
     case 'solitaire':
+    case 'platformer':
+    case 'pong':
+    case 'breakout':
+    case 'asteroids':
+    case 'city':
+    case 'detective':
       return 'Take a break'
     case 'calculator':
       return 'Crunch some numbers'
