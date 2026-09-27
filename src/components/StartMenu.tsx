@@ -109,6 +109,7 @@ function describe(id: AppId) {
     case 'pong':
     case 'breakout':
     case 'asteroids':
+    case 'phoenix':
     case 'city':
     case 'detective':
       return 'Take a break'

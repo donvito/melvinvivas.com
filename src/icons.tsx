@@ -241,6 +241,21 @@ export function AsteroidsIcon({ size, ...props }: P) {
   )
 }
 
+export function PhoenixIcon({ size, ...props }: P) {
+  return (
+    <svg {...base(size, props)}>
+      <rect x="2" y="2" width="28" height="28" rx="3" fill="#000" />
+      <path d="M16 7 l-3 3 l-6 -2 l5 5 z" fill="#ff9040" />
+      <path d="M16 7 l3 3 l6 -2 l-5 5 z" fill="#ff9040" />
+      <ellipse cx="16" cy="10" rx="2" ry="3.5" fill="#ffe060" />
+      <path d="M16 21 l-4 6 h8 z" fill="#e0e0ff" />
+      <rect x="15.3" y="15" width="1.4" height="5" fill="#ffff80" />
+      <circle cx="7" cy="24" r="0.7" fill="#fff" />
+      <circle cx="26" cy="18" r="0.7" fill="#fff" />
+    </svg>
+  )
+}
+
 export function CityIcon({ size, ...props }: P) {
   return (
     <svg {...base(size, props)}>

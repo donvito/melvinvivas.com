@@ -15,6 +15,7 @@ import {
   PongIcon,
   BreakoutIcon,
   AsteroidsIcon,
+  PhoenixIcon,
   CityIcon,
   DetectiveIcon,
 } from './icons'
@@ -36,6 +37,7 @@ export const icons = {
   pong: PongIcon,
   breakout: BreakoutIcon,
   asteroids: AsteroidsIcon,
+  phoenix: PhoenixIcon,
   city: CityIcon,
   detective: DetectiveIcon,
 } as const

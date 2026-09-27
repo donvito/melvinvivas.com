@@ -15,6 +15,7 @@ import { PlatformerApp } from './PlatformerApp'
 import { PongApp } from './PongApp'
 import { BreakoutApp } from './BreakoutApp'
 import { AsteroidsApp } from './AsteroidsApp'
+import { PhoenixApp } from './PhoenixApp'
 import { CityApp } from './CityApp'
 import { DetectiveApp } from './DetectiveApp'
 
@@ -171,6 +172,17 @@ export const apps = [
     icon: 'asteroids',
     component: AsteroidsApp,
     size: { w: 508, h: 490 },
+    desktop: true,
+    startMenu: true,
+    game: true,
+    bare: true,
+  },
+  {
+    id: 'phoenix',
+    title: 'Phoenix',
+    icon: 'phoenix',
+    component: PhoenixApp,
+    size: { w: 428, h: 570 },
     desktop: true,
     startMenu: true,
     game: true,
