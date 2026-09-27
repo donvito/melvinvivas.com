@@ -359,6 +359,12 @@ export function PlatformerApp() {
       const sync = () => setHud({ coins: s.coins, lives: s.lives, score: s.score, level: s.li + 1 })
 
       if (s.phase === 'title' && (jumpKey || input.pressed.has('Enter'))) s.phase = 'play'
+      if (s.phase === 'title')
+        for (let i = 0; i < LEVELS.length; i++)
+          if (input.pressed.has(`Digit${i + 1}`)) {
+            s = fresh(i, { coins: 0, score: 0, lives: 3 })
+            sync()
+          }
       if ((s.phase === 'over' || s.phase === 'won') && (jumpKey || input.pressed.has('Enter'))) {
         s = fresh()
         s.phase = 'play'
@@ -558,6 +564,7 @@ export function PlatformerApp() {
         text(ctx, 'SUPER MELVIN BROS', W / 2, 90, 20, '#f8d020')
         text(ctx, '←/→ move · Z/Shift run · Space jump', W / 2, 125, 11)
         text(ctx, 'PRESS SPACE TO START', W / 2, 155, 11, Math.floor(s.t * 2) % 2 ? '#fff' : '#aaa')
+        text(ctx, `1-${LEVELS.length} warp to stage`, W / 2, 172, 9, '#888')
       }
       if (s.phase === 'clear') text(ctx, `${LEVELS[s.li].name} CLEAR!`, W / 2, H / 2, 20, '#f8d020')
       if (s.phase === 'won') {
@@ -574,7 +581,7 @@ export function PlatformerApp() {
         text(ctx, 'SPACE TO RETRY', W / 2, H / 2 + 24, 11)
       }
     },
-    ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'KeyA', 'KeyD', 'KeyW', 'KeyX', 'KeyZ', 'ShiftLeft', 'ShiftRight', 'Space', 'Enter'],
+    ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'KeyA', 'KeyD', 'KeyW', 'KeyX', 'KeyZ', 'ShiftLeft', 'ShiftRight', 'Space', 'Enter', ...LEVELS.map((_, i) => `Digit${i + 1}`)],
   )
 
   return (
